@@ -93,11 +93,53 @@ section
 .hamburger
     position: absolute
     right: 0
-    top: 34px
+    top: 30px
     .hamburger-box
         width: 34px
+
+.mm-navbar
+    padding-top: 20px
+    height: 60px
+    border: none
+    .mm-title
+        padding: 0
+        img
+            width: 128px
+            height: auto
         
+        
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview
+    margin-top: 0
 
-    
+html.mm-opened
+    overflow-y: scroll
+.mm-panels> .mm-panel .mm-hasnavbar
+    right: -18px
+.mm-listview>li:not(.mm-divider):after
+    display: none
+.mm-menu.mm-theme-black .mm-listview>li.mm-selected>a:not(.mm-next), .mm-menu.mm-theme-black .mm-listview>li.mm-selected>span
+    background-color: transparent
+    color: $accent
 
+.mm-listview
+    li
+        a
+            transition: color .25s ease
+            padding: 
+                left: 14%
+                right: 14px
+                top: 8px
+            &:hover
+                color: $accent
+                &:before
+                    color: $accent
+            &:before
+                content: '\f219'
+                font-family: fontawesome
+                margin-right: 8px
+                text-decoration: 
+                font-size: 12px
+                color: #fff
+                transition: color .25s ease
+        
 @import "media" // Всегда в конце
