@@ -244,6 +244,17 @@ html.mm-opened
         background-color: darken($accent, 5%)
         &::after
             opacity: .32
+    &.btn-white
+        background-color: #fff
+        color: #444444
+        &:after
+            background-color: rgba(#000, .6)
+        &:hover
+            &:after
+                background-color: rgba(#000, .2) 
+        &:active
+            &:after
+                background-color: rgba(#000, .4)   
 
 .header-social
     position: absolute
@@ -296,6 +307,99 @@ $colors: $blue, $red, $accent
 @for $i from 1 through length($colors)
     .carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
         background-color: nth($colors, $i)
+
+.carousel-services
+    background-color: $dark
+    &__item
+        color: #ffffff
+        font-size: 18px
+        font-weight: 300 
+        position: relative
+        display: flex   
+        flex-direction: column-reverse
+        &:hover
+            .carousel-services__image
+                opacity: 1    
+    .owl-item
+        &:nth-child(2n+2)
+            .carousel-services__item
+                flex-direction: column
+    &__logo-img        
         
+    &__image
+        background-size: cover
+        background-position: center
+        opacity: 0.8
+        transition: all .5s ease
+    &__content
+        position: relative
+        padding: 60px 10%
+    &__composition
+        margin: auto
+        text-align: center
+        width: 100%
+    &__header
+        font-size: 30px
+        font-weight: 800    
+        text-transform: uppercase
+        margin-top: 5px
+        margin-bottom: 20px
+        span
+            font-weight: 300
+            font-size: 18px
+            display: block
+    &__list
+        margin: 0
+        padding: 0
+        list-style-type: none
+        margin-bottom: 20px
+        &-item 
+            padding: 9px
+            border-bottom: 1px solid rgba(#000, .12)
+            &:last-child
+                border-bottom: none
+            strong
+                font-family: firasans, sans-serif
+                color: #4a4a4a
+            .fa
+                font-size: 14px
+            
+.owl-nav
+    position: absolute
+    top: 0
+    width: 100%
+    > div
+        width: 64px
+        height: 64px
+        background-color: #fff
+        color: $dark
+        position: absolute
+        text-align: center
+        line-height: 64px
+        font-size: 26px
+        &.owl-prev
+            left: 0
+        &.owl-next
+            right: 0
+
+.owl-carousel
+    .owl-item
+        backface-visibility: inherit
+        .carousel-services__logo
+            text-align: center
+            .carousel-services__logo-img
+                width: 100px
+                height: auto
+                display: inline-block
+
+
+
+
+
+
+
+
+        
+
   
 @import "media" // Всегда в конце
