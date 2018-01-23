@@ -98,6 +98,7 @@ section
     position: absolute
     right: 0
     top: 30px
+    z-index: 1
     .hamburger-box
         width: 34px
 
@@ -243,5 +244,53 @@ html.mm-opened
         background-color: darken($accent, 5%)
         &::after
             opacity: .32
+
+.header-social
+    position: absolute
+    display: flex
+    right: 0
+    height: 100%
+    border-left: rgba(#fff, .1) 1px solid
+    top: 0
+    padding: 0 12.4px
+    
+
+.soc
+    margin: auto
+    &__list
+        margin: 0
+        padding: 0
+        list-style-type: none
+    &__link
+        color: #2c2c2c        
+        font-size: 17px
+        display: block
+        background-color: rgba(#fff, .2) 
+        border-radius: 50%
+        width: 38px
+        height: 38px  
+        text-align: center
+        margin: 18px 0
+        line-height: 38px
+        transition: background-color .25s ease
+        &:hover
+             background-color: rgba(#fff, .4)
+             color: #fff 
+
+.header-contacts
+    position: absolute
+    bottom: 0
+    left: 0
+    border-top: 1px solid rgba(255, 255, 255, 0.15)
+    padding: 12.5px
+    width: 100%
+    background-color: rgba(#151515, .15)
+    .fa
+        margin-right: 5px
+        color: #555555
+    .telephone-header
+        font-family: firasans
+        text-align: center
+        display: block
   
 @import "media" // Всегда в конце
