@@ -146,58 +146,102 @@ html.mm-opened
                 color: #fff
                 transition: color .25s ease
 
-.welcome
+.header-flex
     display: flex
-    align-items: center
+    height: 100%
+    position: relative
+    top: 0
+.flex-center
+    margin: auto
+
+.header-composition
     text-align: center
-    flex-direction: column
+    position: relative
+.welcome    
     &__top
         color: #fffefe        
         font-size: 14px        
         text-transform: uppercase 
+        display: flex
+        align-items: center
+        white-space: nowrap
+        margin: 0
+        &:before, &:after
+                content: ''
+                height: 1px
+                width: 100%
+                position: relative
+                background-color: #fff
+                display: inline-block
+        span
+            margin: 0 10px
+            
     &__header
         color: #fffefe        
         font-weight: 100
-        font-size: 67px        
-        text-transform: uppercase 
-    &__btn
-        display: inline-block
-        border: none
-        color: #fff
-        text-decoration: none
-        background-color: $accent
-        padding: 15px 45px
-        font-size: 13px
+        font-size: 67px 
+        margin: 0
+        line-height: 1.6
+        border-bottom: 1px solid #fff
+        white-space: nowrap
+    strong               
         text-transform: uppercase
-        font-weight: 600
-        letter-spacing: 3px
-        border-radius: 2px
-        text-align: center
-        position: relative
-        outline: none
-        transition: background-color .1s ease
+        font-size: 17px        
+        display: block
+        margin-top: 40px
+        margin-bottom: 40px
+        .fa
+            color: #555555
+            font-size: 12px
+            margin-right: 10px
+            &:last-child
+                margin-left: 10px
+                margin-right: inherit
+    &__bottom
+           span
+            font-weight: 700 
+    .btn
+        margin-top: 25px    
+
+
+.btn
+    display: inline-block
+    border: none
+    color: #fff
+    text-decoration: none
+    background-color: $accent
+    padding: 16px 45px
+    font-size: 13px
+    text-transform: uppercase
+    font-weight: 600
+    letter-spacing: 4px
+    border-radius: 3px
+    text-align: center
+    position: relative
+    outline: none
+    transition: background-color .1s ease
+    &::after
+        transition: background-color .2s ease
+        position: absolute
+        content: ''
+        height: 4px
+        bottom: 0
+        width: 100%
+        background-color: darken($accent, 50%)
+        opacity: .18
+        border-bottom-left-radius: 2px
+        border-bottom-right-radius: 2px
+        left: 0
+    &:focus, &:hover
+        text-decoration: none
+        color: #fff
+    &:hover
+        background-color: lighten($accent, 5%)
         &::after
-            transition: background-color .2s ease
-            position: absolute
-            content: ''
-            height: 4px
-            bottom: 0
-            width: 100%
-            background-color: darken($accent, 50%)
-            opacity: .18
-            border-bottom-left-radius: 2px
-            border-bottom-right-radius: 2px
-            left: 0
-        &:focus, &:hover
-            text-decoration: none
-            color: #fff
-        &:hover
-            background-color: lighten($accent, 5%)
-            &::after
-                opacity: .22
-        &:active
-            background-color: darken($accent, 5%)
-            &::after
-                opacity: .32
+            opacity: .22
+    &:active
+        background-color: darken($accent, 5%)
+        &::after
+            opacity: .32
   
 @import "media" // Всегда в конце
