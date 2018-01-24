@@ -27,12 +27,7 @@
 	color: #666
 	opacity: 1
 
-body input:focus:required:invalid,
-body textarea:focus:required:invalid
-	color: #666
-body input:required:valid,
-body textarea:required:valid
-	color: #666
+
 
 h1, h2, h3, h4, h5 ,h6 
     text-transform: uppercase
@@ -88,6 +83,8 @@ section
     &.inverse
         color: #fff
         background-color: $dark
+        &.s-call
+            background-color: #fff
     .h2
         font-size: 30px
         font-weight: 800
@@ -401,6 +398,7 @@ $colors: $blue, $red, $accent
                 height: auto
                 display: inline-block
 
+// Style for section
 .s
     &-king, &review, &-partners
         padding: 5% 0
@@ -408,6 +406,19 @@ $colors: $blue, $red, $accent
         p
             margin: 30px 0
             font-size: 18px
+    &-call        
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: 15%
+        &:before
+            content: ''
+            width: 50%
+            right: 0
+            height: 100%
+            position: absolute
+            background-color: rgba($accent, .92)
+
+
 
 .section-overley
     &:before
@@ -447,7 +458,84 @@ $colors: $blue, $red, $accent
             &:before
                 content: '\f104'
     
+.callback
+    padding: 25% 0
+    position: relative    
+    &__logo
+        img 
+            width: 100px
+            height: auto
+    .formhead
+        margin-top: 0
+        font-size: 30px      
+        font-weight: 800 
+        text-transform: uppercase
+    p
+        margin-top: 0
+    input, textarea, select,
+    .selectize-input, 
+        color: #fff
+        width: 100%
+        margin-top: 18px
+        &::-webkit-input-placeholder
+            color: #fff
+            opacity: 1
+        &::-moz-placeholder 
+            color: #fff 
+            opacity: 1
+        &::-ms-placeholder 
+            color: #fff 
+        option
+            color: #333
+    .btn
+        margin-top: 40px
+             
+input, textarea, select,
+.selectize-input,  .selectize-input.input-active.dropdown-active
+    background-color: transparent    
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1)
+    border-radius: 2px
+    padding: 8px 22px
+    outline: none
+    display: inline-block
+    font-size: 16px    
+    color: #333
 
+select
+    padding: 10px 22px
+
+.selectize-input
+    box-shadow: none
+    overflow: inherit
+    line-height: inherit
+    text-align: left
+    
+    > *
+        color: #333
+        background-color: transparent
+    input
+        font-size: 16px
+    
+.success
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    text-transform: uppercase
+    font-weight: bold
+    display: none
+    z-index: 10
+    span
+        margin: auto
+    & ~ *  // обозначает все что идет после 
+        transition: all .5s ease
+    &.active
+       & ~ *
+        opacity: 0.5
+        filter: blur(10px) 
+            
 
 
 

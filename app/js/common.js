@@ -8,7 +8,7 @@ $(function() {
 		offCanvas: {
 			position: 'right'
 		}
-	});	
+	});
 	var api = $('#my-menu').data('mmenu');
 	api.bind('opened', function() {
 		$('.hamburger').addClass('is-active');
@@ -19,7 +19,7 @@ $(function() {
 		setTimeout(function() {
 			carouselService();
 		});
-		
+
 	});
 	$('.carousel-services').owlCarousel({
 		loop:true,
@@ -41,7 +41,7 @@ $(function() {
 		}
 	});
 
-	
+
 
 	function carouselService() {
 		$('.carousel-services__item').each(function() {
@@ -59,11 +59,33 @@ $(function() {
 		var ths = $(this);
 	ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
 	});
+	 $('select').selectize({
+	 	create: true,
+	 	sortField: 'text'
+	 });
+	//E-mail Ajax Send
+	$("form.callback").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "/mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			$(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+			setTimeout(function() {
+				// Done Functions
+				$(th).find('.success').removeClass('active').fadeOut();
+				th.trigger("reset");
+			}, 3000);
+		});
+		return false;
+	});
+
 	//Resize window
 	function onResize() {
 		$('.carousel-services__content').equalHeights();
 	}
 	onResize();
 	window.onresize = function() {onResize();};
-	
+
 });
