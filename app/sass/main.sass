@@ -58,6 +58,54 @@ body
 .text-center
     text-align: center
 
+.preloader
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 99
+    background-color: $dark
+
+
+@mixin opacity($opacity)
+    opacity: $opacity / 100
+    filter: alpha(opacity = $opacity)
+
+.pulse
+    position: relative
+    left: 50%
+    top: 50vh
+    margin-left: -40px
+    margin-top: -40px
+    &:before, &:after
+        content: ''
+        border: 5px solid #323232
+        width: 80px
+        height: 80px
+        border-radius: 500px
+        position: absolute
+    &:before
+        animation: pulse-outer .8s ease-in infinite
+    &:after
+        animation: pulse-inner .8s linear infinite
+
+@keyframes pulse-outer
+    0%
+        @include opacity(100)
+    50%
+        @include opacity(50)
+    100%
+        @include opacity(0)
+
+@keyframes pulse-inner
+    0%
+        @include opacity(0)
+        transform: scale(0)
+    100%
+        @include opacity(100)
+        transform: scale(1)
+
 .logo
     img
         width: 125px
@@ -644,6 +692,116 @@ select
                 right: -60px 
                 
 
+.main-footer
+    background-color: #242424
+    padding: 3% 0
+    color: #fff
+    font-size: 14px
 
-  
+.footer-column
+    margin: 15px 0
+    .footer-text
+        color: #777777
+        padding: 0
+        margin: 15px 0
+        font-size: 14px
+
+.logo-footer
+    width: 125px
+    height: auto
+
+.social-footer
+    margin-top: 38px
+    .soc
+        &__item
+            display: inline-block
+            margin: 3px
+        &__link
+            color: #b9b9b9
+            margin-bottom: 0
+
+.footer-menu
+    &__list
+        padding: 0
+        margin: 0
+        list-style-type: none
+    &__link
+        color: #979797
+        transition: all .25s ease
+        display: inline-block
+        padding: 4px 0
+        text-decoration: underline
+        padding-left: 20px
+        position: relative
+        &:hover, &:focus
+            color: $accent
+            &:before
+                color: $accent
+        &:before
+            position: absolute
+            content: '\f219'
+            font-family: fontawesome
+            left: 0
+            font-size: 12px
+            color: #ffffff
+            bottom: 5px
+            margin-right: 12px
+
+    &__item.active
+        a   
+            color: $accent
+            &:before
+                color: $accent
+    
+.footer-addr
+    position: relative
+    font-size: 15px
+    padding-left: 24px
+    margin: 0 0 20px
+    .fa
+        position: absolute
+        left: 0
+        top: 5px
+        font-size: 18px
+        color: #797979
+
+.footer-phone
+    color: #ffffff
+    font-family: firasans, sans-serif
+    padding-top: 10px
+    display: block
+    font-size: 26px
+    .fa
+        top: 22px
+        font-size: 20px
+
+.footer-map
+    min-height: 200px
+    opacity: 0.7
+    transition: all .5s ease
+    &:hover
+        opacity: 1
+
+.top
+    position: fixed
+    bottom: 25px
+    right: -100px
+    background-color: #e0e0e0
+    z-index: 12
+    border-radius: 50%
+    font-size: 26px
+    width: 50px
+    height: 50px
+    text-align: center
+    line-height: 50px
+    cursor: pointer
+    transition: all .3s ease
+    opacity: 0.5
+    &:hover
+        color: #ffffff
+        background-color: $accent
+        opacity: 1
+    &.active
+        right: 25px
+       
 @import "media" // Всегда в конце
